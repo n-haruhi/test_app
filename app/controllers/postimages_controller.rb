@@ -1,4 +1,5 @@
-class PostimagesController < ApplicationController
+class PostImagesController < ApplicationController
+
   def new
     @post_image = PostImage.new
   end
@@ -15,12 +16,15 @@ class PostimagesController < ApplicationController
   end
 
   def index
+    @post_images = PostImage.all
   end
 
   def show
+    @post_image = PostImage.find(params[:id])
+    @post_comment = PostComment.new
   end
 
-  # 投稿のストロングパラメータ
+  # 投稿データのストロングパラメータ
   private
 
   def post_image_params
